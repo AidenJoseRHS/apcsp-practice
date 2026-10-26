@@ -18,21 +18,35 @@ def make_bar(value, maximum, width):
     bar = bar + "]"
     return bar
 
+text = "HELLO WORLD"
 def format_duration(seconds):
-    minutes = elapsed_seconds // 60
-    # elapsed_remainder = elapsed_seconds % 60
-    # elapsed_text = str(elapsed_minutes) + ":"
-    # if elapsed_remainder < 10:
-    #     elapsed_text = elapsed_text + "0"
-    # elapsed_text = elapsed_text + str(elapsed_remainder)
+    minutes = seconds // 60
+    remainder = seconds % 60
+    text = str(minutes) + ":"
+    if remainder < 10:
+         text = text + "0"
+    text = text + str(remainder)
+    return text
 
 def add_all(scores):
+    total = 0
+    for score in scores:
+        total = total + score
+    highest = scores[0]
+    for score in scores:
+        if score > highest:
+            highest = score
+    strong_count = 0
+    for score in scores:
+        if score >= 80:
+            strong_count = strong_count + 1
+    return 
 
-def find_highest(scores):
+# def find_highest(scores):
 
-def count_at_least(scores, threshold):
+# def count_at_least(scores, threshold):
 
-def render_status(name, health, energy, elapsed_seconds, best_seconds, scores):
+def render_status(name, health, energy, elapsed_seconds, best_seconds, scores, elapsed_text):
     # Keep this function's name, parameters, and returned report.
     # Add your own helper functions above it.
 
@@ -77,7 +91,7 @@ def render_status(name, health, energy, elapsed_seconds, best_seconds, scores):
     #     best_text = best_text + "0"
     # best_text = best_text + str(best_remainder)
 
-    elasped_text = elapsed_text + " (" + best_text + ")"
+    elapsed_text = text + " (" + best_text + ")"
     best_text = best_text + " (best)"
 
     # Summarize the recent scores.
